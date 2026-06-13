@@ -1,26 +1,44 @@
 @import "tailwindcss";
+@import "../../public/css/satoshi.css";
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #152014;
+  --rlcc-green: #365233;
+  --rlcc-green-dark: #082900;
+  --rlcc-surface: #f9f9f9;
+  --rlcc-cream: #fbfdf8;
+  --rlcc-text-main: #1d221d;
+  --rlcc-text-muted: #5d675d;
+  --rlcc-overlay: rgba(19, 43, 17, 0.7);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-rlcc-green: var(--rlcc-green);
+  --color-rlcc-green-dark: var(--rlcc-green-dark);
+  --color-rlcc-surface: var(--rlcc-surface);
+  --color-rlcc-cream: var(--rlcc-cream);
+  --color-rlcc-text-main: var(--rlcc-text-main);
+  --color-rlcc-text-muted: var(--rlcc-text-muted);
+  --color-rlcc-overlay: var(--rlcc-overlay);
+  --font-sans: "Satoshi-Variable";
+  --font-heading: var(--font-montserrat);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--rlcc-text-main);
+  font-family: "Satoshi-Variable", "Satoshi-Regular", var(--font-montserrat), Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-montserrat), Arial, sans-serif;
 }
