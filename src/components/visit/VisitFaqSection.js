@@ -1,3 +1,4 @@
+import { ChevronDown } from "react-bootstrap-icons";
 import { visitPageContent } from "@/data/siteContent";
 
 export default function VisitFaqSection() {
@@ -14,10 +15,18 @@ export default function VisitFaqSection() {
         </div>
 
         <div className="mx-auto mt-10 max-w-4xl space-y-3">
-          {faq.items.map((item) => (
-            <details key={item.question} className="rounded-lg border border-black/10 bg-white p-5 shadow-sm">
-              <summary className="cursor-pointer list-none pr-6 text-base font-semibold text-rlcc-text-main">
-                {item.question}
+          {faq.items.map((item, index) => (
+            <details
+              key={item.question}
+              open={index === 0}
+              className="group rounded-lg border border-black/10 bg-white p-5 shadow-sm"
+            >
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-rlcc-text-main [&::-webkit-details-marker]:hidden">
+                <span>{item.question}</span>
+                <ChevronDown
+                  className="h-5 w-5 shrink-0 text-rlcc-green transition-transform duration-200 group-open:rotate-180"
+                  aria-hidden="true"
+                />
               </summary>
               <p className="mt-3 text-sm leading-7 text-rlcc-text-muted">{item.answer}</p>
             </details>

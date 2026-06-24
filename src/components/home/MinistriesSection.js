@@ -1,5 +1,6 @@
 import Image from "next/image";
 import PrimaryButton from "@/components/ui/PrimaryButton";
+import ListBullet from "@/components/ui/ListBullet";
 import { ministriesHighlight } from "@/data/siteContent";
 
 export default function MinistriesSection() {
@@ -25,9 +26,9 @@ export default function MinistriesSection() {
               </p>
               <ul className="mt-6 space-y-2 text-sm text-rlcc-text-main">
                 {ministriesHighlight.points.map((point) => (
-                  <li key={point} className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-rlcc-green" aria-hidden="true" />
-                    {point}
+                  <li key={point} className="flex items-start gap-2 text-sm text-rlcc-text-main">
+                    <ListBullet />
+                    <span>{point}</span>
                   </li>
                 ))}
               </ul>

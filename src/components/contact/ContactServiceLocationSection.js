@@ -1,4 +1,5 @@
 import PrimaryButton from "@/components/ui/PrimaryButton";
+import ListBullet from "@/components/ui/ListBullet";
 import { contactPageContent } from "@/data/siteContent";
 
 export default function ContactServiceLocationSection() {
@@ -15,10 +16,10 @@ export default function ContactServiceLocationSection() {
             {serviceLocation.services.map((service) => (
               <li
                 key={service.label}
-                className="flex items-center gap-2 text-base text-rlcc-text-main sm:text-lg"
+                className="flex items-start gap-2 text-base text-rlcc-text-main sm:text-lg"
               >
-                <span className="h-2 w-2 shrink-0 rounded-full bg-rlcc-green" aria-hidden="true" />
-                {service.label}
+                <ListBullet />
+                <span>{service.label}</span>
               </li>
             ))}
           </ul>

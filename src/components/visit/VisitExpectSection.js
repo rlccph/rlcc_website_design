@@ -1,3 +1,4 @@
+import ListBullet from "@/components/ui/ListBullet";
 import { visitPageContent } from "@/data/siteContent";
 
 export default function VisitExpectSection() {
@@ -14,8 +15,8 @@ export default function VisitExpectSection() {
         <div className="mx-auto mt-10 max-w-4xl rounded-lg bg-white p-6 shadow-lg sm:p-8">
           <ul className="space-y-4">
             {expect.points.map((point) => (
-              <li key={point} className="flex items-center gap-3 text-base leading-7 text-rlcc-text-main">
-                <span className="h-2 w-2 shrink-0 rounded-full bg-rlcc-green" aria-hidden="true" />
+              <li key={point} className="flex items-start gap-3 text-base leading-7 text-rlcc-text-main">
+                <ListBullet />
                 <span>{point}</span>
               </li>
             ))}

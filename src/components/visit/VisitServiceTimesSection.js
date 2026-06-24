@@ -1,4 +1,5 @@
 import PrimaryButton from "@/components/ui/PrimaryButton";
+import ListBullet from "@/components/ui/ListBullet";
 import { visitPageContent } from "@/data/siteContent";
 
 export default function VisitServiceTimesSection() {
@@ -14,9 +15,9 @@ export default function VisitServiceTimesSection() {
 
         <div className="mx-auto mt-8 flex max-w-4xl flex-wrap justify-center gap-x-8 gap-y-3">
           {serviceTimes.glanceNotes.map((note) => (
-            <p key={note} className="flex items-center gap-2 text-sm text-rlcc-text-main sm:text-base">
-              <span className="h-2 w-2 shrink-0 rounded-full bg-rlcc-green" aria-hidden="true" />
-              {note}
+            <p key={note} className="flex items-start gap-2 text-sm text-rlcc-text-main sm:text-base">
+              <ListBullet />
+              <span>{note}</span>
             </p>
           ))}
         </div>
