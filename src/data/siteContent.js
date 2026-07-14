@@ -683,7 +683,7 @@ export const messagesPageContent = {
       description:
         "In the wilderness, Jesus faced three temptations — to turn stones to bread, to test God's protection, and to seize power on his own terms. This message explores how the Spirit leads us through our own wilderness moments with the same faithfulness.",
       image: "/images/messages/the-third-way-june-2026.png",
-      href: "/messages/watch/the-third-way",
+      href: "/messages/watch/the-third-way/trinity-of-temptations",
     },
     recent: [
       {
@@ -692,7 +692,7 @@ export const messagesPageContent = {
         date: "May 31, 2026",
         speaker: "Rev. Bong Baylon",
         image: "/images/messages/alive-may-2026.png",
-        href: "/messages/watch/alive",
+        href: "/messages/watch/alive/living-with-impact",
       },
       {
         id: "living-in-community",
@@ -700,7 +700,7 @@ export const messagesPageContent = {
         date: "May 24, 2026",
         speaker: "Rev. Bong Baylon",
         image: "/images/messages/alive-may-2026.png",
-        href: "/messages/watch/alive",
+        href: "/messages/watch/alive/living-in-community",
       },
       {
         id: "living-generously",
@@ -708,7 +708,7 @@ export const messagesPageContent = {
         date: "May 17, 2026",
         speaker: "Rev. Bong Baylon",
         image: "/images/messages/alive-may-2026.png",
-        href: "/messages/watch/alive",
+        href: "/messages/watch/alive/living-generously",
       },
     ],
   },
@@ -755,7 +755,7 @@ export const messagesPageContent = {
       description:
         "Following Jesus means choosing a path that doesn't bend to fear, pride, or the pressure to prove ourselves. Today we reflect on what it means to walk the third way.",
       image: "/images/messages/the-third-way-june-2026.png",
-      href: "/messages/listen/the-third-way-june-2026",
+      href: "/messages/listen/the-third-way-june-2026/day-5",
     },
     recent: [
       {
@@ -764,7 +764,7 @@ export const messagesPageContent = {
         date: "June 11, 2026",
         speaker: "Rev. Bong Baylon",
         image: "/images/messages/the-third-way-june-2026.png",
-        href: "/messages/listen/the-third-way-june-2026",
+        href: "/messages/listen/the-third-way-june-2026/day-4",
       },
       {
         id: "day-3",
@@ -772,7 +772,7 @@ export const messagesPageContent = {
         date: "June 10, 2026",
         speaker: "Rev. Bong Baylon",
         image: "/images/messages/the-third-way-june-2026.png",
-        href: "/messages/listen/the-third-way-june-2026",
+        href: "/messages/listen/the-third-way-june-2026/day-3",
       },
       {
         id: "day-2",
@@ -780,7 +780,7 @@ export const messagesPageContent = {
         date: "June 9, 2026",
         speaker: "Rev. Bong Baylon",
         image: "/images/messages/the-third-way-june-2026.png",
-        href: "/messages/listen/the-third-way-june-2026",
+        href: "/messages/listen/the-third-way-june-2026/day-2",
       },
     ],
   },
@@ -814,7 +814,7 @@ export const watchPageContent = {
     description:
       "In the wilderness, Jesus faced three temptations — to turn stones to bread, to test God's protection, and to seize power on his own terms. This message explores how the Spirit leads us through our own wilderness moments with the same faithfulness.",
     image: "/images/messages/the-third-way-june-2026.png",
-    href: "/messages/watch/the-third-way",
+    href: "/messages/watch/the-third-way/trinity-of-temptations",
     ctaLabel: "Watch Latest Message",
     seriesHref: "/messages/watch/the-third-way",
   },
@@ -869,7 +869,7 @@ export const watchPageContent = {
           subtitle: "May 2026 Series",
           playlistId: "PL0tu5eWxiLBQfxH4cPr4KkPZu-Lx5aQXZ",
           image: "/images/messages/alive-may-2026.png",
-          dateRange: "May 3 – 31, 2026",
+          dateRange: "May 10 – 31, 2026",
           description: "Alive: Living Because Jesus Lives",
           messages: [
             {
@@ -877,30 +877,36 @@ export const watchPageContent = {
               title: "Living with Impact",
               date: "May 31, 2026",
               speaker: "Rev. Bong Baylon",
+              videoId: "dPN1a1oCahA",
+              description:
+                "Because Jesus lives, we can live with lasting impact — not for our own recognition, but for the sake of others and the glory of God.",
             },
             {
               id: "living-in-community",
               title: "Living in Community",
               date: "May 24, 2026",
               speaker: "Rev. Bong Baylon",
+              videoId: "-dVlP8QkAqw",
+              description:
+                "Real life in Christ is not a solo journey. This message explores how belonging to a community shapes our faith and everyday discipleship.",
             },
             {
               id: "living-generously",
               title: "Living Generously",
               date: "May 17, 2026",
               speaker: "Rev. Bong Baylon",
+              videoId: "cWl5APlupfg",
+              description:
+                "Generosity flows from a heart that has received grace. We look at what it means to live open-handedly because Jesus lives.",
             },
             {
               id: "living-miraculously",
               title: "Living Miraculously",
               date: "May 10, 2026",
               speaker: "Rev. Bong Baylon",
-            },
-            {
-              id: "living-with-devotion",
-              title: "Living With Devotion",
-              date: "May 3, 2026",
-              speaker: "Rev. Bong Baylon",
+              videoId: "t2dtZp2bxtc",
+              description:
+                "The resurrection is not only a past event — it invites us to expect God to work in surprising ways in ordinary life.",
             },
           ],
         },
@@ -915,10 +921,40 @@ export const watchPageContent = {
             "Alive in Christ, we are called to follow Jesus in a divided, anxious, and broken world. This series explores what it means to walk the third way — not the way of power or passivity, but the way of Jesus.",
           messages: [
             {
+              id: "a-better-solution",
+              title: "A Better Solution",
+              date: "June 28, 2026",
+              speaker: "Rev. Bong Baylon",
+              videoId: "CVuSLPPeI34",
+              description:
+                "When the world's answers fall short, Jesus offers a better way — one shaped by trust, faithfulness, and love.",
+            },
+            {
+              id: "you-are-invited",
+              title: "You Are Invited",
+              date: "June 21, 2026",
+              speaker: "Rev. Bong Baylon",
+              videoId: "U-08NDSkJpc",
+              description:
+                "The third way is not reserved for the already-strong. Jesus invites ordinary people into a life with him.",
+            },
+            {
+              id: "on-the-right-side",
+              title: "On the Right Side",
+              date: "June 14, 2026",
+              speaker: "Rev. Bong Baylon",
+              videoId: "h49s6qHvETo",
+              description:
+                "In a world of competing sides, this message asks what it means to stand with Jesus rather than merely against someone else.",
+            },
+            {
               id: "trinity-of-temptations",
               title: "A Trinity of Temptations",
               date: "June 7, 2026",
               speaker: "Rev. Bong Baylon",
+              videoId: "UU4qWIQvW9E",
+              description:
+                "In the wilderness, Jesus faced three temptations — to turn stones to bread, to test God's protection, and to seize power on his own terms. This message explores how the Spirit leads us through our own wilderness moments with the same faithfulness.",
             },
           ],
         },
@@ -956,30 +992,45 @@ export const listenPageContent = {
           title: "Day 5: The Third Way",
           date: "June 12, 2026",
           speaker: "Rev. Bong Baylon",
+          videoId: "_XI62fOp_5Q",
+          description:
+            "Following Jesus means choosing a path that doesn't bend to fear, pride, or the pressure to prove ourselves. Today we reflect on what it means to walk the third way.",
         },
         {
           id: "day-4",
           title: "Day 4: A Savior Who Understands",
           date: "June 11, 2026",
           speaker: "Rev. Bong Baylon",
+          videoId: "lc9FpPNf4wY",
+          description:
+            "Jesus is not distant from our struggles. This devotion reflects on a Savior who understands our weakness and walks with us through it.",
         },
         {
           id: "day-3",
           title: "Day 3: The Temptation of the Shortcut",
           date: "June 10, 2026",
           speaker: "Rev. Bong Baylon",
+          videoId: "rS4X6ugdihk",
+          description:
+            "Shortcuts promise quick results, but discipleship asks for a slower faithfulness. We consider where we are tempted to skip the way of Jesus.",
         },
         {
           id: "day-2",
           title: "Day 2: The Burden of Proving Ourselves",
           date: "June 9, 2026",
           speaker: "Rev. Bong Baylon",
+          videoId: "RftUPOiJOq4",
+          description:
+            "Many of us live under the pressure to prove our worth. This devotion invites us to rest in identity received, not performed.",
         },
         {
           id: "day-1",
           title: "Day 1: The Illusion of Control",
           date: "June 8, 2026",
           speaker: "Rev. Bong Baylon",
+          videoId: "83UHRm37vmk",
+          description:
+            "Control feels safe, but it can become a false refuge. We begin the week by naming where we cling to control instead of trusting God.",
         },
       ],
     },
@@ -1000,6 +1051,79 @@ export function getWatchPlaylistBySlug(slug) {
   }
 
   return null;
+}
+
+export function getWatchMessageBySlug(seriesSlug, messageSlug) {
+  const series = getWatchPlaylistBySlug(seriesSlug);
+  if (!series?.messages) {
+    return null;
+  }
+
+  const message = series.messages.find((item) => item.id === messageSlug);
+  if (!message) {
+    return null;
+  }
+
+  return {
+    ...message,
+    format: "watch",
+    ctaLabel: "Watch",
+    series,
+    seriesHref: `/messages/watch/${series.slug}`,
+    href: `/messages/watch/${series.slug}/${message.id}`,
+    siblings: series.messages.map((item) => ({
+      ...item,
+      href: `/messages/watch/${series.slug}/${item.id}`,
+    })),
+  };
+}
+
+export function getListenEpisodeBySlug(seriesSlug, episodeSlug) {
+  const series = getListenSeriesBySlug(seriesSlug);
+  if (!series?.episodes) {
+    return null;
+  }
+
+  const message = series.episodes.find((item) => item.id === episodeSlug);
+  if (!message) {
+    return null;
+  }
+
+  return {
+    ...message,
+    format: "listen",
+    ctaLabel: "Listen",
+    series: {
+      ...series,
+      subtitle: `${series.subtitle} Series`,
+    },
+    seriesHref: `/messages/listen/${series.slug}`,
+    href: `/messages/listen/${series.slug}/${message.id}`,
+    siblings: series.episodes.map((item) => ({
+      ...item,
+      href: `/messages/listen/${series.slug}/${item.id}`,
+    })),
+  };
+}
+
+export function getAllWatchMessageParams() {
+  return watchPageContent.seriesByYear.flatMap((group) =>
+    group.playlists.flatMap((playlist) =>
+      (playlist.messages ?? []).map((message) => ({
+        slug: playlist.slug,
+        messageSlug: message.id,
+      })),
+    ),
+  );
+}
+
+export function getAllListenEpisodeParams() {
+  return listenPageContent.devotionSeries.flatMap((series) =>
+    series.episodes.map((episode) => ({
+      slug: series.slug,
+      episodeSlug: episode.id,
+    })),
+  );
 }
 
 export const footerData = {

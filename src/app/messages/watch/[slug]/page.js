@@ -68,26 +68,30 @@ export default async function WatchSeriesPage({ params }) {
         {playlist.messages && playlist.messages.length > 0 && (
           <section className="py-12 sm:py-16">
             <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
-              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <h2 className="text-2xl font-bold text-rlcc-green-dark">Messages in this series</h2>
+              <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {playlist.messages.map((message) => (
-                  <article
+                  <Link
                     key={message.id}
-                    className="overflow-hidden rounded-lg border border-black/10 bg-white shadow-sm"
+                    href={`/messages/watch/${playlist.slug}/${message.id}`}
+                    className="group overflow-hidden rounded-lg border border-black/10 bg-white shadow-sm transition-shadow hover:shadow-md"
                   >
                     <Image
                       src={playlist.image}
                       alt={message.title}
                       width={640}
                       height={360}
-                      className="h-36 w-full object-cover"
+                      className="h-36 w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                     />
                     <div className="p-4">
-                      <h2 className="font-bold text-rlcc-text-main">{message.title}</h2>
+                      <h2 className="font-bold text-rlcc-text-main group-hover:text-rlcc-green">
+                        {message.title}
+                      </h2>
                       <p className="mt-2 text-sm text-rlcc-text-muted">
                         {message.date} · {message.speaker}
                       </p>
                     </div>
-                  </article>
+                  </Link>
                 ))}
               </div>
             </div>
