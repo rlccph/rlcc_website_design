@@ -7,6 +7,7 @@ export default function PrimaryButton({
   className = "",
   target,
   rel,
+  onClick,
 }) {
   const isExternal = href.startsWith("http");
   const linkTarget = target ?? (isExternal ? "_blank" : undefined);
@@ -26,6 +27,7 @@ export default function PrimaryButton({
       href={href}
       target={linkTarget}
       rel={linkRel}
+      onClick={onClick}
       className={`${baseClass} ${variantClass} ${className}`.trim()}
     >
       {children}

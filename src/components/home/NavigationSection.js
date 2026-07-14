@@ -4,7 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { brandAssets, navLinks } from "@/data/siteContent";
+import PrimaryButton from "@/components/ui/PrimaryButton";
+import {
+  brandAssets,
+  footerData,
+  mobileNavUtility,
+  navLinks,
+} from "@/data/siteContent";
 
 function isNavItemActive(pathname, link) {
   if (link.children) {
@@ -188,6 +194,65 @@ function MobileNavLink({ link, pathname, onNavigate }) {
   );
 }
 
+function MobileNavUtility({ onNavigate }) {
+  const { ctaLabel, ctaHref, secondaryLabel, secondaryHref, contact } = mobileNavUtility;
+
+  return (
+    <div className="mt-auto border-t border-black/10 bg-rlcc-surface px-4 py-6 sm:px-6">
+      <div className="flex flex-col gap-3">
+        <PrimaryButton href={ctaHref} className="w-full" onClick={onNavigate}>
+          {ctaLabel}
+        </PrimaryButton>
+        <PrimaryButton
+          href={secondaryHref}
+          variant="outline"
+          className="w-full"
+          onClick={onNavigate}
+        >
+          {secondaryLabel}
+        </PrimaryButton>
+      </div>
+
+      <div className="mt-6 space-y-2 text-sm text-rlcc-text-main">
+        <a
+          href={contact.phoneHref}
+          className="block font-semibold transition-colors hover:text-rlcc-green"
+        >
+          {contact.phone}
+        </a>
+        <a
+          href={contact.emailHref}
+          className="block transition-colors hover:text-rlcc-green"
+        >
+          {contact.email}
+        </a>
+        <Link
+          href="/contact"
+          onClick={onNavigate}
+          className="inline-block pt-1 text-sm font-semibold text-rlcc-green transition-colors hover:text-rlcc-green-dark"
+        >
+          Contact us
+        </Link>
+      </div>
+
+      <div className="mt-6 flex flex-wrap gap-2">
+        {footerData.socialLinks.map((social) => (
+          <a
+            key={social.label}
+            href={social.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={social.label}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-rlcc-green transition-colors hover:bg-rlcc-green-dark"
+          >
+            <Image src={social.icon} alt="" width={18} height={18} className="h-[18px] w-[18px]" />
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function NavigationSection({ variant = "overlay" }) {
   const pathname = usePathname();
   const isHero = variant === "overlay";
@@ -219,6 +284,7 @@ export default function NavigationSection({ variant = "overlay" }) {
 
   const useLightBrand = isScrolled || !isHero || mobileMenuOpen;
   const toggleIconClass = useLightBrand ? "text-rlcc-text-main" : "text-white";
+  const closeMobileMenu = () => setMobileMenuOpen(false);
 
   const headerClass = mobileMenuOpen
     ? "fixed inset-0 z-50 flex flex-col bg-white md:static md:inset-auto md:z-40 md:flex-none md:bg-transparent"
@@ -235,7 +301,7 @@ export default function NavigationSection({ variant = "overlay" }) {
           mobileMenuOpen ? "border-b border-black/10" : ""
         }`}
       >
-        <Link href="/" className="inline-flex items-center">
+        <Link href="/" className="inline-flex items-center" onClick={closeMobileMenu}>
           <Image
             src={useLightBrand ? brandAssets.logoOnLight : brandAssets.logo}
             alt="Real Life Christian Communities"
@@ -269,7 +335,7 @@ export default function NavigationSection({ variant = "overlay" }) {
       {mobileMenuOpen ? (
         <div
           id="mobile-navigation"
-          className="flex-1 overflow-y-auto bg-white md:hidden"
+          className="flex min-h-0 flex-1 flex-col overflow-y-auto bg-white md:hidden"
         >
           <ul className="mx-auto w-full max-w-6xl px-4 py-3 sm:px-6">
             {navLinks.map((link) => (
@@ -277,10 +343,11 @@ export default function NavigationSection({ variant = "overlay" }) {
                 key={link.href}
                 link={link}
                 pathname={pathname}
-                onNavigate={() => setMobileMenuOpen(false)}
+                onNavigate={closeMobileMenu}
               />
             ))}
           </ul>
+          <MobileNavUtility onNavigate={closeMobileMenu} />
         </div>
       ) : null}
     </header>

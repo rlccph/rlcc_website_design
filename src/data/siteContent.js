@@ -23,6 +23,19 @@ export const navLinks = [
   { label: "About", href: "/about" },
 ];
 
+export const mobileNavUtility = {
+  ctaLabel: "Plan Your Visit",
+  ctaHref: "/visit",
+  secondaryLabel: "Watch Live",
+  secondaryHref: realLifeTv.url,
+  contact: {
+    email: "support@rlcc.ph",
+    phone: "+63 906 593 8010",
+    phoneHref: "tel:+639065938010",
+    emailHref: "mailto:support@rlcc.ph",
+  },
+};
+
 export const brandAssets = {
   logo: "/images/brand/rlcc-logo-white.png",
   logoOnLight: "/images/brand/rlcc-logo-green.png",
