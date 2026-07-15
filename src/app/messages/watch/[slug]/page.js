@@ -108,7 +108,10 @@ export default async function WatchSeriesPage({ params }) {
               />
             </div>
             <p className="mt-6 text-sm text-rlcc-text-muted">
-              <Link href="/messages/watch" className="font-semibold text-rlcc-green hover:text-rlcc-green-dark">
+              <Link
+                href="/messages/watch"
+                className="font-semibold text-rlcc-green hover:text-rlcc-green-dark"
+              >
                 ← Back to all sermon series
               </Link>
             </p>

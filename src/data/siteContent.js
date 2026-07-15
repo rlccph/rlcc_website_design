@@ -986,6 +986,10 @@ export const listenPageContent = {
         "Alive in Christ, we are called to follow Jesus in a divided, anxious, and broken world. This series of daily devotions walks through the previous Sunday's message — one day at a time.",
       image: "/images/messages/the-third-way-june-2026.png",
       playlistId: "PL0tu5eWxiLBSXplTqbqj4UR7UCRqdIoOV",
+      // Optional: links this weekday podcast series to a Sunday Watch series.
+      // Omit (or null) for free-floating podcasts with no Sunday pairing.
+      relatedWatchSeriesSlug: "the-third-way",
+      relatedWatchMessageId: "trinity-of-temptations",
       episodes: [
         {
           id: "day-5",
@@ -1034,12 +1038,51 @@ export const listenPageContent = {
         },
       ],
     },
+    {
+      slug: "real-life-essentials",
+      title: "Real Life Essentials",
+      subtitle: "Standalone",
+      description:
+        "Short, free-floating podcast conversations for everyday faith — not tied to a specific Sunday sermon series. Listen anytime.",
+      image: "/images/messages/listen-hero-worship.png",
+      playlistId: "PL0tu5eWxiLBSXplTqbqj4UR7UCRqdIoOV",
+      // No relatedWatchSeriesSlug — demonstrates podcasts that stand alone.
+      episodes: [
+        {
+          id: "day-1-real-life-is-not-fake",
+          title: "Day 1 – Real Life Is Not Fake",
+          date: "May 5, 2026",
+          speaker: "Rev. Bong Baylon",
+          videoId: "pVJ60zSEz2Q",
+          description:
+            "A standalone devotion on living honestly before God and others — without a Sunday series pairing.",
+        },
+        {
+          id: "day-2-walk-with-jesus",
+          title: "Day 2 – Walk with Jesus",
+          date: "May 6, 2026",
+          speaker: "Rev. Bong Baylon",
+          videoId: "-NVHfJfGSE8",
+          description:
+            "A free-floating episode on walking with Jesus in ordinary rhythms of the week.",
+        },
+      ],
+    },
   ],
   currentSeriesSlug: "the-third-way-june-2026",
 };
 
 export function getListenSeriesBySlug(slug) {
   return listenPageContent.devotionSeries.find((series) => series.slug === slug) ?? null;
+}
+
+/** Listen/podcast series linked to a specific Sunday Watch message (optional). */
+export function getListenSeriesForWatchMessage(watchSeriesSlug, watchMessageId) {
+  return listenPageContent.devotionSeries.filter(
+    (series) =>
+      series.relatedWatchSeriesSlug === watchSeriesSlug &&
+      series.relatedWatchMessageId === watchMessageId,
+  );
 }
 
 export function getWatchPlaylistBySlug(slug) {

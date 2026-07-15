@@ -1,15 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import YouTubeEmbed from "@/components/ui/YouTubeEmbed";
+import WatchRelatedListenSection from "@/components/messages/WatchRelatedListenSection";
 
 export default function MessageDetailView({
   message,
   archiveHref,
   archiveLabel,
   sectionLabel,
+  relatedListenSeries = [],
 }) {
   const { series, siblings } = message;
   const otherMessages = siblings.filter((item) => item.id !== message.id);
+  const showRelatedListen =
+    message.format === "watch" && relatedListenSeries.length > 0;
 
   return (
     <main>
@@ -47,6 +51,17 @@ export default function MessageDetailView({
                 {message.description}
               </p>
             )}
+            {showRelatedListen && (
+              <p className="mt-4 text-sm text-rlcc-text-muted">
+                Also available as{" "}
+                <a
+                  href="#related-listen"
+                  className="font-semibold text-rlcc-green hover:text-rlcc-green-dark"
+                >
+                  weekday podcasts ↓
+                </a>
+              </p>
+            )}
           </div>
 
           <div className="mt-8">
@@ -78,8 +93,17 @@ export default function MessageDetailView({
         </div>
       </section>
 
+      {showRelatedListen && (
+        <div id="related-listen">
+          <WatchRelatedListenSection
+            listenSeries={relatedListenSeries}
+            watchMessageTitle={message.title}
+          />
+        </div>
+      )}
+
       {otherMessages.length > 0 && (
-        <section className="py-12 sm:py-16">
+        <section className="bg-rlcc-surface py-12 sm:py-16">
           <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-bold text-rlcc-green-dark">
               More from {series.title}

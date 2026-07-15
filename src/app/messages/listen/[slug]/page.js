@@ -4,7 +4,12 @@ import { notFound } from "next/navigation";
 import FooterSection from "@/components/home/FooterSection";
 import NavigationSection from "@/components/home/NavigationSection";
 import YouTubeEmbed from "@/components/ui/YouTubeEmbed";
-import { getListenSeriesBySlug, listenPageContent } from "@/data/siteContent";
+import {
+  getListenSeriesBySlug,
+  getWatchMessageBySlug,
+  getWatchPlaylistBySlug,
+  listenPageContent,
+} from "@/data/siteContent";
 
 export function generateStaticParams() {
   return listenPageContent.devotionSeries.map((series) => ({ slug: series.slug }));
@@ -17,6 +22,14 @@ export default async function ListenSeriesPage({ params }) {
   if (!series) {
     notFound();
   }
+
+  const relatedWatchSeries = series.relatedWatchSeriesSlug
+    ? getWatchPlaylistBySlug(series.relatedWatchSeriesSlug)
+    : null;
+  const relatedWatchMessage =
+    series.relatedWatchSeriesSlug && series.relatedWatchMessageId
+      ? getWatchMessageBySlug(series.relatedWatchSeriesSlug, series.relatedWatchMessageId)
+      : null;
 
   return (
     <div className="bg-white">
@@ -47,10 +60,38 @@ export default async function ListenSeriesPage({ params }) {
                 className="aspect-video w-full rounded-lg object-cover shadow-md"
               />
               <div>
-                <h1 className="text-3xl font-black text-rlcc-green-dark sm:text-4xl">
+                <p className="text-sm font-semibold uppercase tracking-[0.15em] text-rlcc-green">
+                  {relatedWatchSeries ? "From Sunday’s message" : "Standalone podcast"}
+                </p>
+                <h1 className="mt-3 text-3xl font-black text-rlcc-green-dark sm:text-4xl">
                   {series.title} ({series.subtitle})
                 </h1>
                 <p className="mt-4 text-base leading-7 text-rlcc-text-muted">{series.description}</p>
+
+                {relatedWatchSeries && (
+                  <div className="mt-6 rounded-lg border border-black/10 bg-white p-4">
+                    <p className="text-xs font-semibold uppercase tracking-[0.12em] text-rlcc-green">
+                      Related Watch series
+                    </p>
+                    <Link
+                      href={`/messages/watch/${relatedWatchSeries.slug}`}
+                      className="mt-2 block text-lg font-bold text-rlcc-text-main hover:text-rlcc-green"
+                    >
+                      {relatedWatchSeries.title}
+                    </Link>
+                    {relatedWatchMessage && (
+                      <p className="mt-1 text-sm text-rlcc-text-muted">
+                        Based on{" "}
+                        <Link
+                          href={relatedWatchMessage.href}
+                          className="font-semibold text-rlcc-green hover:text-rlcc-green-dark"
+                        >
+                          {relatedWatchMessage.title}
+                        </Link>
+                      </p>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -94,7 +135,10 @@ export default async function ListenSeriesPage({ params }) {
               <YouTubeEmbed playlistId={series.playlistId} title={series.title} />
             </div>
             <p className="mt-6 text-sm text-rlcc-text-muted">
-              <Link href="/messages/listen" className="font-semibold text-rlcc-green hover:text-rlcc-green-dark">
+              <Link
+                href="/messages/listen"
+                className="font-semibold text-rlcc-green hover:text-rlcc-green-dark"
+              >
                 ← Back to all devotion series
               </Link>
             </p>

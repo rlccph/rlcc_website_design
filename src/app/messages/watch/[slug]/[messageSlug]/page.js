@@ -4,6 +4,7 @@ import NavigationSection from "@/components/home/NavigationSection";
 import MessageDetailView from "@/components/messages/MessageDetailView";
 import {
   getAllWatchMessageParams,
+  getListenSeriesForWatchMessage,
   getWatchMessageBySlug,
 } from "@/data/siteContent";
 
@@ -33,6 +34,8 @@ export default async function WatchMessagePage({ params }) {
     notFound();
   }
 
+  const relatedListenSeries = getListenSeriesForWatchMessage(slug, messageSlug);
+
   return (
     <div className="bg-white">
       <NavigationSection variant="light" />
@@ -41,6 +44,7 @@ export default async function WatchMessagePage({ params }) {
         archiveHref="/messages/watch"
         archiveLabel="All sermon series"
         sectionLabel="Real Life TV"
+        relatedListenSeries={relatedListenSeries}
       />
       <FooterSection />
     </div>

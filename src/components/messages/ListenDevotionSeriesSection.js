@@ -21,7 +21,10 @@ export default function ListenDevotionSeriesSection() {
                 className="h-44 w-full object-cover"
               />
               <div className="p-5">
-                <h2 className="text-lg font-bold text-rlcc-text-main group-hover:text-rlcc-green">
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-rlcc-green">
+                  {series.relatedWatchSeriesSlug ? "From a Sunday series" : "Standalone"}
+                </p>
+                <h2 className="mt-2 text-lg font-bold text-rlcc-text-main group-hover:text-rlcc-green">
                   {series.title}
                 </h2>
                 <p className="mt-2 text-sm text-rlcc-text-muted">{series.subtitle}</p>
